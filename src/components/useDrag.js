@@ -1,3 +1,5 @@
+import { events } from './event';
+
 export default function(container,callback){
   
     
@@ -26,6 +28,7 @@ const drop = (e)=>{
   
 }
   let dragStart = (e,cmp)=>{
+    events.emit('start')
     currentCmp = cmp
     container.value.addEventListener('dragenter',dragenter)
     container.value.addEventListener('dragover',dragover)
@@ -34,6 +37,8 @@ const drop = (e)=>{
   }
   let dragend = (e)=>{
     currentCmp = null
+    events.emit('end')
+
     container.value.removeEventListener('dragenter',dragenter)
     container.value.removeEventListener('dragover',dragover)
     container.value.removeEventListener('dragleave',dragleave)

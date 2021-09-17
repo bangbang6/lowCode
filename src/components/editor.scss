@@ -1,3 +1,5 @@
+@import '../iconfont/iconfont.css';
+
 .editor {
   width: 100%;
   height: 100%;
@@ -55,6 +57,24 @@
     right: 280px;
     left: 280px;
     height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-button {
+      width: 70px;
+      height: 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.3);
+      user-select: none;
+      cursor: pointer;
+      color: #fff;
+      & + & {
+        margin-left: 3px;
+      }
+    }
   }
   &-container {
     padding: 80px 270px 0;
@@ -67,7 +87,8 @@
       background-color: blueviolet;
       &__content {
         margin: 20px auto;
-        background: yellow;
+        height: calc(100% - 40px);
+
         position: relative;
       }
     }
@@ -86,4 +107,18 @@
   .focus {
     border: 2px red dashed;
   }
+}
+
+.line-x {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-left: 1px dashed red;
+}
+// 移动的是top 值
+.line-y {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 1px dashed red;
 }
